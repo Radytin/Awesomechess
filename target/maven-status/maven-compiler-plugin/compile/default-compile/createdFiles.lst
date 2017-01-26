@@ -1,0 +1,5 @@
+com/chess/chessboard/Tile$1.class
+com/chess/piece/Piece.class
+com/chess/chessboard/Tile.class
+com/chess/chessboard/Tile$occupiedTile.class
+com/chess/chessboard/Tile$emptyTile.class
