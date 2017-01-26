@@ -20,9 +20,16 @@ public abstract class Tile {
 			emptyTileMap.put(i, new emptyTile(i));
 		}
 		
-		return null;
+		return emptyTileMap;
+		//note: use Guava-lib for immutable map at some point
+		
 	}
-	Tile(int tileCoordinate){
+	
+	public static Tile createTile(final int tileCoordinate, final Piece piece){
+		return piece != null ? new occupiedTile(tileCoordinate, piece) : EMPTY_TILES.get(tileCoordinate);
+	}
+	
+	private Tile(int tileCoordinate){
 		this.tileCoordinate=tileCoordinate;
 	}
 	
