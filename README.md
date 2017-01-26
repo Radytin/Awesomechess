@@ -3,3 +3,4 @@ Shakkipeli, jossa 1-2 pelaajaa voivat pelata toisiaan vastaan tai tekoälybottia
 
 [aiheen kuvaus](documentation/aihemaarittelu.md)
 [tuntikirjanpito](documentation/tuntikirjanpito.md)
+[määrittelyvaiheen luokkakaavio](documentation/diagrams/classdiagram_chess.jpg)
