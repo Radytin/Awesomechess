@@ -1,5 +1,7 @@
 package com.chess.chessboard;
 
-public class Move {
+import com.chess.piece.Piece;
+
+public abstract class Move {
 
 }
