@@ -19,6 +19,9 @@ public class Knight extends Piece {
 		
 	}
 
+	/**
+	 * Calculates legal moves.
+	 */
 	@Override
 	public Collection<Move> calculateLegalMoves(Board board) { 
 		

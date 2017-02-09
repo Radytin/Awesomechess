@@ -1,7 +1,7 @@
 package com.chess.chessboard;
 
 public class BoardUtils {
-//Utilities for the chessboard
+
 	
 	public static final boolean[] FIRST_COLUMN = initColumn(0);
 	public static final boolean[] SECOND_COLUMN = initColumn(1);
