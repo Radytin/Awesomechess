@@ -7,6 +7,9 @@ public class BoardUtils {
 	public static final boolean[] SECOND_COLUMN = initColumn(1);
 	public static final boolean[] SEVENTH_COLUMN = initColumn(6);
 	public static final boolean[] EIGHT_COLUMN = initColumn(7);
+	public static final boolean[] SECOND_ROW = null;
+	public static final boolean[] SEVENTH_ROW = null;
+	
 	
 	
 	public static final int NUM_TILES = 64;
@@ -30,5 +33,7 @@ public class BoardUtils {
 		
 		return coordinate >= 0 && coordinate < NUM_TILES;
 	}
+	
+	}
 
-}
+
