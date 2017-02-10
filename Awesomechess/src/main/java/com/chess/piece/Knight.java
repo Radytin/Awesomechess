@@ -21,7 +21,9 @@ public class Knight extends Piece {
 	}
 
 	/**
-	 * Calculates legal moves.
+	 * Check if tile coordinate is valid or exception tile and calculate legal moves.
+	 * Check if destination tile is occupied. 
+	 * If tile's occupied by enemy use attack move, if not then use major move.
 	 */
 	@Override
 	public Collection<Move> calculateLegalMoves(Board board) { 
