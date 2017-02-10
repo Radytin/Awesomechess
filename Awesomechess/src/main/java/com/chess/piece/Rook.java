@@ -11,11 +11,11 @@ import com.chess.chessboard.Tile;
 import static com.chess.chessboard.Move.*;
 import com.chess.chessengine.Alliance;
 
-public class Bishop extends Piece{
+public class Rook extends Piece{
 	
-	private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -7, 7, 9 };
-	
-	Bishop(int piecePosition, Alliance pieceAlliance) { 
+	private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-8, -1, 1, 8 };
+
+	Rook(int piecePosition, Alliance pieceAlliance) {
 		super(piecePosition, pieceAlliance);
 		
 	}
@@ -26,7 +26,6 @@ public class Bishop extends Piece{
 	 * If tile's occupied by enemy, use attack move and if not, use major move.
 	 * After encountering another piece, break out of loop. 
 	 */
-
 	@Override
 	public Collection<Move> calculateLegalMoves(final Board board) { 
 		
@@ -67,10 +66,10 @@ public class Bishop extends Piece{
 		return legalMoves;
 	}
     private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){
-		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == 7);
+		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -1);
     	
     }
     private static boolean isEightColumnException(final int currentPosition, final int candidateOffset){
-  		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == -7 || candidateOffset == 9);
+  		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == 1);
 }
 }
