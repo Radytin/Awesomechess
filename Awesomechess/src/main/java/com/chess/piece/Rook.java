@@ -15,7 +15,7 @@ public class Rook extends Piece{
 	
 	private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-8, -1, 1, 8 };
 
-	Rook(int piecePosition, Alliance pieceAlliance) {
+	Rook(int piecePosition, Alliance pieceAlliance) { 
 		super(piecePosition, pieceAlliance);
 		
 	}
@@ -31,12 +31,12 @@ public class Rook extends Piece{
 		
 		final List<Move> legalMoves = new ArrayList<>();
 		
-		for(final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES){ 
+		for (final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES){  
 			int candidateDestinationCoordinate = this.piecePosition;
-			while(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
+			while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
 				
-				if(isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
-						isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)){
+				if (isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
+						isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)){ 
 					break;
 					
 					
@@ -65,11 +65,11 @@ public class Rook extends Piece{
 		}
 		return legalMoves;
 	}
-    private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){
+    private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){ 
 		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -1);
     	
     }
-    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset){
+    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset){ 
   		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == 1);
 }
 }

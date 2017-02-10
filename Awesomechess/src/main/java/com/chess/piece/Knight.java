@@ -35,12 +35,12 @@ public class Knight extends Piece {
 			
 			final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
 			
-			if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
+			if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){  
 				
 				if (isFirstColumnException(this.piecePosition, currentCandidateOffset) ||
 						isSecondColumnException(this.piecePosition, currentCandidateOffset) || 
-					    isSeventhColumnException(this.piecePosition, currentCandidateOffset) || 
-					    isEightColumnException(this.piecePosition, currentCandidateOffset)){  
+					    isSeventhColumnException(this.piecePosition, currentCandidateOffset) ||  
+					    isEightColumnException(this.piecePosition, currentCandidateOffset)){ 
 								continue;
 				}
 				
@@ -73,7 +73,7 @@ public class Knight extends Piece {
 		
 	}
    private static boolean isSeventhColumnException(final int currentPosition, final int candidateOffset) { 
-	   return BoardUtils.SEVENTH_COLUMN[currentPosition] && (candidateOffset == -6 || candidateOffset == 10 );
+	   return BoardUtils.SEVENTH_COLUMN[currentPosition] && (candidateOffset == -6 || candidateOffset == 10);
    }
    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset) {
 	   return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == -15 || candidateOffset == -6 || candidateOffset == -10 || candidateOffset == -17);

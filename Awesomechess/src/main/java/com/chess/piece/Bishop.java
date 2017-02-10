@@ -11,7 +11,7 @@ import com.chess.chessboard.Tile;
 import static com.chess.chessboard.Move.*;
 import com.chess.chessengine.Alliance;
 
-public class Bishop extends Piece{
+public class Bishop extends Piece{ 
 	
 	private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -7, 7, 9 };
 	
@@ -32,12 +32,12 @@ public class Bishop extends Piece{
 		
 		final List<Move> legalMoves = new ArrayList<>();
 		
-		for(final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES){ 
+		for(final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES){  
 			int candidateDestinationCoordinate = this.piecePosition;
-			while(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
+			while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){  
 				
-				if(isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
-						isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)){
+				if (isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
+						isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)){ 
 					break;
 					
 					
@@ -54,7 +54,7 @@ public class Bishop extends Piece{
 						final Piece pieceAtDestination = candidateDestinationTile.getPiece();
 						final Alliance pieceAlliance = pieceAtDestination.getPieceAlliance();
 						
-						if (this.pieceAlliance != pieceAlliance) {   
+						if (this.pieceAlliance != pieceAlliance) {  
 							
 							legalMoves.add(new AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
 						}
@@ -66,11 +66,11 @@ public class Bishop extends Piece{
 		}
 		return legalMoves;
 	}
-    private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){
+    private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){ 
 		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == 7);
     	
     }
-    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset){
+    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset){ 
   		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == -7 || candidateOffset == 9);
 }
 }

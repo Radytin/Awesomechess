@@ -12,7 +12,7 @@ import com.chess.chessboard.Move.AttackMove;
 import com.chess.chessboard.Move.MajorMove;
 import com.chess.chessengine.Alliance;
 
-public class Queen extends Piece{
+public class Queen extends Piece{ 
 	
 	private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -8, -7, -1, 1, 7, 8, 9 };
 
@@ -33,18 +33,18 @@ public class Queen extends Piece{
 		
 		final List<Move> legalMoves = new ArrayList<>();
 		
-		for(final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES){ 
+		for (final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES){  
 			int candidateDestinationCoordinate = this.piecePosition;
-			while(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
+			while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
 				
-				if(isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
-						isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)){ 
+				if (isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
+						isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)){  
 					break;
 					
 					
 				}
 				candidateDestinationCoordinate += candidateCoordinateOffset;
-				if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
+				if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){   
 					
 					final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 					
