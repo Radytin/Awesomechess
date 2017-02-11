@@ -65,7 +65,7 @@ public class Knight extends Piece {
 		return legalMoves;
 	}
 	private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset) { 
-		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -17 || (candidateOffset == -10) || candidateOffset == 6 || candidateOffset == 15);
+		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -17 || candidateOffset == -10 || candidateOffset == 6 || candidateOffset == 15);
 		
 	}
 	private static boolean isSecondColumnException(final int currentPosition, final int candidateOffset) { 
