@@ -11,7 +11,7 @@ import com.chess.chessengine.Alliance;
 
 public class Pawn  extends Piece{ 
 	
-	private final static int[] CANDIDATE_MOVE_COORDINATE ={8, 16}; 
+	private final static int[] CANDIDATE_MOVE_COORDINATE ={7, 8, 9, 16}; 
 
 	Pawn( final int piecePosition, final Alliance pieceAlliance) {  
 		super( piecePosition, pieceAlliance);
@@ -31,7 +31,7 @@ public class Pawn  extends Piece{
 				continue;
 			}
 			if (currentCandidateOffset == 8 && !board.getTile(candidateDestinationCoordinate).isTileFull()){ 
-			// TODO Later on going to add PawnMove class to handle this.
+			// TODO Later on going to add PawnMove class to handle this..
 				legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
 			} else if (currentCandidateOffset == 16 && this.isFirstMove() && 
 					(BoardUtils.SECOND_ROW[this.piecePosition]) && this.getPieceAlliance().isBlack() || 
@@ -41,11 +41,37 @@ public class Pawn  extends Piece{
 						!board.getTile(candidateDestinationCoordinate).isTileFull()){  
 					    legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
 				}
+				
+			} else if (currentCandidateOffset == 7 && 
+					!((BoardUtils.EIGHT_COLUMN[this.piecePosition] && this.pieceAlliance.isWhite() ||
+					(BoardUtils.FIRST_COLUMN[this.piecePosition] && this.pieceAlliance.isBlack())))) { 
+				if(board.getTile(candidateDestinationCoordinate).isTileFull()){
+					final Piece pieceOnCandidate = board.getTile(candidateDestinationCoordinate).getPiece();
+					if(this.pieceAlliance != pieceOnCandidate.getPieceAlliance()){
+						//TODO  Moves for Pawn not defined in Move class yet so stub.
+					    legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
+
+					}
+				}
+				
+			
+			} else if (currentCandidateOffset == 9 &&
+					!((BoardUtils.FIRST_COLUMN[this.piecePosition] && this.pieceAlliance.isWhite() ||
+					(BoardUtils.EIGHT_COLUMN[this.piecePosition] && this.pieceAlliance.isBlack())))){ 
+				if(board.getTile(candidateDestinationCoordinate).isTileFull()){
+					final Piece pieceOnCandidate = board.getTile(candidateDestinationCoordinate).getPiece();
+					if(this.pieceAlliance != pieceOnCandidate.getPieceAlliance()){
+						//TODO  Moves for Pawn not defined in Move class yet so stub.
+					    legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
+
+					}
+				}
+				
 			}
 			
 		}
 		
-		return null;
+		return legalMoves;
 	}
 	
 
