@@ -32,7 +32,7 @@ public class King extends Piece {
 		final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
 		
 		//edge cases
-		if(isFirstColumnException(this.piecePosition, currentCandidateOffset) ||
+		if (isFirstColumnException(this.piecePosition, currentCandidateOffset) ||
 				isEightColumnException(this.piecePosition,currentCandidateOffset)){
 			
 			continue;
