@@ -21,7 +21,7 @@ public abstract class Tile {
 		}
 		
 		return emptyTileMap;
-		//note: use Guava-lib for immutable map at some point
+		
 		
 	}
 	/**
