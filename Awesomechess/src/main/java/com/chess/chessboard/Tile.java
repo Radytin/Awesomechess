@@ -45,6 +45,13 @@ public abstract class Tile {
 		private emptyTile(final int coordinate) {
 			super(coordinate);
 		}
+		
+		@Override
+		public String toString(){
+			return "-";
+			
+		}
+		
 		/**
 		 * Tells if there is a piece on tile, on empty tiles returns false.
 		 */
@@ -64,6 +71,12 @@ public abstract class Tile {
 		private occupiedTile(int tileCoordinate, final Piece pieceOnTile) { 
 			super(tileCoordinate);
 			this.pieceOnTile = pieceOnTile;
+		}
+		
+		@Override
+		public String toString(){
+			return getPiece().getPieceAlliance().isBlack() ? getPiece().toString().toLowerCase() :
+			getPiece().toString();
 		}
 		/**
 		 * Tells if there's a piece on tile, on occupied tile returns true.

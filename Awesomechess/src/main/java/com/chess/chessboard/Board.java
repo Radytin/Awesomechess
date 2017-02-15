@@ -1,5 +1,8 @@
 package com.chess.chessboard;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,15 +19,65 @@ import com.google.common.collect.ImmutableList;
 public class Board {
 	
 	private final List<Tile> gameBoard;
+	private final Collection<Piece> whitePieces;
+	private final Collection<Piece> blackPieces;
 
 	private Board(Builder builder) {
 		this.gameBoard = createGameBoard(builder);
+		this.whitePieces = calculateActivePieces(this.gameBoard, Alliance.WHITE);
+		this.blackPieces =calculateActivePieces(this.gameBoard, Alliance.BLACK);
 		
+		final Collection<Move> whiteLegalMoves = calculateLegalMoves(this.whitePieces);
+		final Collection<Move> blackLegalMoves = calculateLegalMoves(this.blackPieces);
+	}
+	
+	@Override
+	public String toString(){
+		final StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < BoardUtils.NUM_TILES; i++){
+			final String tileText = this.gameBoard.get(i).toString();
+			builder.append(String.format("%3s", tileText));
+			if((i + 1) % BoardUtils.NUM_TILES_PER_ROW == 0) {
+				builder.append("\n");
+			}
+		}
+		return builder.toString();
+		
+	}
+
+
+	private Collection<Move> calculateLegalMoves(final Collection<Piece> pieces) {
+		
+		final List<Move> legalMoves = new ArrayList<>();
+		
+		for(Piece piece : pieces){
+			
+			legalMoves.addAll(piece.calculateLegalMoves(this));
+			
+		}
+		return ImmutableList.copyOf(legalMoves);
+	}
+
+	private static Collection<Piece> calculateActivePieces(final List<Tile> gameBoard, final Alliance alliance) {
+		
+		final List<Piece>activePieces = new ArrayList<>();
+		
+		for(final Tile tile : gameBoard){
+			if(tile.isTileFull()){
+				final Piece piece = tile.getPiece();
+				if(piece.getPieceAlliance() == alliance){
+					activePieces.add(piece);
+				}
+			}
+		}
+		
+		
+		return ImmutableList.copyOf(activePieces);
 	}
 
 	public Tile getTile(final int tileCoordinate) { 
 		
-		return null;
+		return gameBoard.get(tileCoordinate);
 	}
 	
 	private static List<Tile> createGameBoard( final Builder builder){
@@ -84,6 +137,7 @@ public class Board {
 		Alliance nextMoveMaker;
 		
 		public Builder(){
+			this.boardConfiguration = new HashMap<>();
 			
 		}
 		

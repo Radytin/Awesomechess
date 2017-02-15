@@ -10,6 +10,8 @@ import com.chess.chessboard.Move;
 import com.chess.chessboard.Tile;
 import static com.chess.chessboard.Move.*;
 import com.chess.chessengine.Alliance;
+import com.chess.piece.Piece.PieceType;
+import com.google.common.collect.ImmutableList;
 
 public class Rook extends Piece{
 	
@@ -63,7 +65,13 @@ public class Rook extends Piece{
 				}
 			}
 		}
-		return legalMoves;
+		return ImmutableList.copyOf(legalMoves);
+	}
+	
+	@Override
+	public String toString(){
+		return PieceType.ROOK.toString();
+		
 	}
     private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){ 
 		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -1);

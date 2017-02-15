@@ -8,6 +8,8 @@ import com.chess.chessboard.Board;
 import com.chess.chessboard.BoardUtils;
 import com.chess.chessboard.Move;
 import com.chess.chessengine.Alliance;
+import com.chess.piece.Piece.PieceType;
+import com.google.common.collect.ImmutableList;
 
 public class Pawn  extends Piece{ 
 	
@@ -71,7 +73,12 @@ public class Pawn  extends Piece{
 			
 		}
 		
-		return legalMoves;
+		return ImmutableList.copyOf(legalMoves);
+	}
+	@Override
+	public String toString(){
+		return PieceType.PAWN.toString();
+		
 	}
 	
 

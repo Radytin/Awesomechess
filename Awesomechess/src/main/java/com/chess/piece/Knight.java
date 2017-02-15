@@ -10,6 +10,9 @@ import com.chess.chessboard.BoardUtils;
 import com.chess.chessboard.Move;
 import com.chess.chessboard.Tile;
 import com.chess.chessengine.Alliance;
+import com.chess.piece.Piece.PieceType;
+import com.google.common.collect.ImmutableList;
+
 import static com.chess.chessboard.Move.*;
 public class Knight extends Piece { 
 	
@@ -61,8 +64,14 @@ public class Knight extends Piece {
 			}
 		}
 		
-		//Maybe a Guava Immutable List here 
-		return legalMoves;
+	
+		return ImmutableList.copyOf(legalMoves);
+	}
+	
+	@Override
+	public String toString(){
+		return PieceType.KNIGHT.toString();
+		
 	}
 	private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset) { 
 		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -17 || candidateOffset == -10 || candidateOffset == 6 || candidateOffset == 15);

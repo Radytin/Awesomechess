@@ -11,6 +11,8 @@ import com.chess.chessboard.Tile;
 import com.chess.chessboard.Move.AttackMove;
 import com.chess.chessboard.Move.MajorMove;
 import com.chess.chessengine.Alliance;
+import com.chess.piece.Piece.PieceType;
+import com.google.common.collect.ImmutableList;
 
 public class Queen extends Piece{ 
 	
@@ -65,7 +67,12 @@ public class Queen extends Piece{
 				}
 			}
 		}
-		return legalMoves;
+		return ImmutableList.copyOf(legalMoves);
+	}
+	@Override
+	public String toString(){
+		return PieceType.QUEEN.toString();
+		
 	}
     private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){ 
 		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == -1 || candidateOffset == 7);
