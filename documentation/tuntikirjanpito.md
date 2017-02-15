@@ -9,5 +9,7 @@ Päivä | Tunnit | Kuvaus
 10.02.2017 |4h| Suunniteltu ja koodattu Bishop, Rook, Queen ja aloiteltu Pawnia.
 11.02.2017 |1h| Jatkettu Pawnia ja luotu King- luokka ja sen liikesäännöt. 
 13.02.2017 |2h| Suunniteltu ja aloiteltu boardbuilderiä.
+14.02.2017 |2h| Viimeistelty boardbuildeeriä ja luotu main- luokka. Ihmetelty runtime-erroria jota en saanut korjattua
+15.02.2017 |1h| Ihmetelty erroria lisää, pushattu tuotos nyt vaikka main ei toimi jotta voin kysyä apua.
 
 
