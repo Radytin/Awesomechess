@@ -27,12 +27,24 @@ public abstract class Piece {
 		return this.pieceAlliance;
 		
 	}
+	/**
+	 * Check if it's first move, used for pawn jump.
+	 * @return true if it's first move
+	 */
 	public boolean isFirstMove(){ 
 		return this.isFirstMove;
+		//TODO needs more work
 		
 	}
+	/**
+	 * Collection of legal moves
+	 * @param board
+	 * @return Collection of legal moves.
+	 */
 	public abstract Collection<Move> calculateLegalMoves(final Board board);
 	
+	
+	 
 	public enum PieceType{
 		
 		PAWN("P"),

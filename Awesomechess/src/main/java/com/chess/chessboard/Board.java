@@ -90,6 +90,11 @@ public class Board {
 		
 	}
 	
+	/**
+	 * Create a new standard board and add all the pieces.
+	 * @return build
+	 */
+	
 	public static Board createStandardBoard() {
         final Builder builder = new Builder();
         // Black pieces
@@ -146,12 +151,18 @@ public class Board {
 			return this;
 			
 		}
+		
+		
 		public Builder setMoveMaker(Alliance nextMoveMaker){
 			this.nextMoveMaker = nextMoveMaker; 
 			return this;
 			
 		}
 		
+		/**
+		 * Build a new board
+		 * @return new board
+		 */
 		public Board build(){
 			return new Board(this);
 		}

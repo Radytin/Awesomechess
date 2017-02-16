@@ -2,6 +2,7 @@ package com.chess.chessboard;
 
 import com.chess.piece.Piece;
 
+
 public abstract class Move {
 
 	final Board board;
@@ -17,6 +18,13 @@ public abstract class Move {
 	}
 	
 	public static final class MajorMove extends Move{ 
+		
+		/**
+		 * A move that's not an attacking move.
+		 * @param board
+		 * @param movedPiece
+		 * @param destinationCoordinate
+		 */
 
 		public MajorMove(Board board, Piece movedPiece, int destinationCoordinate) {
 			super(board, movedPiece, destinationCoordinate);
@@ -25,9 +33,18 @@ public abstract class Move {
 		
 	}
 	
+	
 	public static final class AttackMove extends Move{ 
 
 		final Piece attackedPiece;
+		
+		/**
+		 * An attacking move.
+		 * @param board
+		 * @param movedPiece
+		 * @param destinationCoordinate
+		 * @param attackedPiece
+		 */
 		
 		public AttackMove(Board board, Piece movedPiece, int destinationCoordinate, final Piece attackedPiece) {
 			super(board, movedPiece, destinationCoordinate);

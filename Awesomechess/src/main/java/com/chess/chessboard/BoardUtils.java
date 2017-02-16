@@ -43,6 +43,12 @@ public class BoardUtils {
 		return row;
 		
 	}
+	
+	/**
+	 * Checks if current tile coordinate is within bounds.
+	 * @param coordinate
+	 * @return
+	 */
 	public static boolean isValidTileCoordinate(final int coordinate) {  
 		
 		return coordinate >= 0 && coordinate < NUM_TILES;
