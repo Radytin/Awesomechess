@@ -13,11 +13,16 @@ import com.chess.chessengine.Alliance;
 import com.chess.piece.Piece.PieceType;
 import com.google.common.collect.ImmutableList;
 
-public class Rook extends Piece{
+public class Rook extends Piece {
 	
 	private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-8, -1, 1, 8 };
-
-	public Rook(Alliance pieceAlliance,int piecePosition) { 
+	
+	/**
+	 * Constructor for Rook.
+	 * @param pieceAlliance black or white
+	 * @param piecePosition position of piece
+	 */
+	public Rook(Alliance pieceAlliance, int piecePosition) { 
 		super(piecePosition, pieceAlliance);
 		
 	}
@@ -33,22 +38,22 @@ public class Rook extends Piece{
 		
 		final List<Move> legalMoves = new ArrayList<>();
 		
-		for (final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES){  
+		for (final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES) {  
 			int candidateDestinationCoordinate = this.piecePosition;
-			while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
+			while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) { 
 				
 				if (isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
-						isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)){ 
+							 isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)) { 
 					break;
 					
 					
 				}
 				candidateDestinationCoordinate += candidateCoordinateOffset;
-				if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
+				if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) { 
 					
 					final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 					
-					if (candidateDestinationTile.isTileFull()){ 
+					if (candidateDestinationTile.isTileFull()) { 
 		
 						legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate));
 					} else { 
@@ -69,15 +74,15 @@ public class Rook extends Piece{
 	}
 	
 	@Override
-	public String toString(){
+	public String toString() {
 		return PieceType.ROOK.toString();
 		
 	}
-    private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){ 
+    private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset) { 
 		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -1);
     	
     }
-    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset){ 
+    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset) { 
   		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == 1);
 }
 }

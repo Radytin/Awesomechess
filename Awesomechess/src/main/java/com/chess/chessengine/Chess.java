@@ -2,14 +2,14 @@ package com.chess.chessengine;
 
 import com.chess.chessboard.Board;
 
-public class Chess {
+public class Chess { 
 	
 	/**
 	 * Create a new standard board.
-	 * @param args
+	 * @param args args 
 	 */
 	
-	public static void main (String[] args){
+	public static void main(String[] args) { 
 		
 		Board board = Board.createStandardBoard();
 		

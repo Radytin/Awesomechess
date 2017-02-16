@@ -12,10 +12,15 @@ import static com.chess.chessboard.Move.*;
 import com.chess.chessengine.Alliance;
 import com.google.common.collect.ImmutableList;
 
-public class Bishop extends Piece{ 
+public class Bishop extends Piece {  
 	
 	private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -7, 7, 9 };
 	
+	/**
+	 * Bishop constructor.
+	 * @param pieceAlliance black or white
+	 * @param piecePosition position of the piece
+	 */
 	public Bishop(Alliance pieceAlliance, int piecePosition) { 
 		super(piecePosition, pieceAlliance);
 		
@@ -33,22 +38,22 @@ public class Bishop extends Piece{
 		
 		final List<Move> legalMoves = new ArrayList<>();
 		
-		for(final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES){  
+		for (final int candidateCoordinateOffset: CANDIDATE_MOVE_VECTOR_COORDINATES) {   
 			int candidateDestinationCoordinate = this.piecePosition;
-			while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){  
+			while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {  
 				
 				if (isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
-						isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)){ 
+							 isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)) { 
 					break;
 					
 					
 				}
 				candidateDestinationCoordinate += candidateCoordinateOffset;
-				if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){ 
+				if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) { 
 					
 					final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 					
-					if (candidateDestinationTile.isTileFull()){ 
+					if (candidateDestinationTile.isTileFull()) { 
 		
 						legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate));
 					} else { 
@@ -64,20 +69,20 @@ public class Bishop extends Piece{
 					
 				}
 			}
-		}
+		} 
 		return ImmutableList.copyOf(legalMoves);
 	}
 	
 	@Override
-	public String toString(){
+	public String toString() { 
 		return PieceType.BISHOP.toString();
 		
 	}
-    private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset){ 
-		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == 7);
+    private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset) {  
+    	return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == 7);
     	
     }
-    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset){ 
+    private static boolean isEightColumnException(final int currentPosition, final int candidateOffset) {  
   		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == -7 || candidateOffset == 9);
-}
+    }
 }

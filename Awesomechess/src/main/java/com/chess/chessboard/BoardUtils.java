@@ -21,23 +21,23 @@ public class BoardUtils {
 		
 		final boolean[] column = new boolean [NUM_TILES];
 		
-			do { 
+		do { 
 			column[columnNumber] = true;
 			columnNumber +=  NUM_TILES_PER_ROW;
 			
-			}  while (columnNumber < NUM_TILES);
+		} while (columnNumber < NUM_TILES);
 		
 		return column;
 	}
 	
-	private static boolean[] initRow(int rowNumber){
+	private static boolean[] initRow(int rowNumber) { 
 		final boolean[] row = new boolean[NUM_TILES];
 		
-		do{
-		row[rowNumber] = true;
-		rowNumber++;
+		do {
+			row[rowNumber] = true;
+			rowNumber++;
 			
-		}while(rowNumber % NUM_TILES_PER_ROW != 0);
+		} while (rowNumber % NUM_TILES_PER_ROW != 0);
 			
 		
 		return row;
@@ -46,14 +46,13 @@ public class BoardUtils {
 	
 	/**
 	 * Checks if current tile coordinate is within bounds.
-	 * @param coordinate
-	 * @return
+	 * @param coordinate coordinate of the tile
+	 * @return true if coordinate is valid.
 	 */
 	public static boolean isValidTileCoordinate(final int coordinate) {  
 		
 		return coordinate >= 0 && coordinate < NUM_TILES;
 	}
-	
-	}
+}
 
 

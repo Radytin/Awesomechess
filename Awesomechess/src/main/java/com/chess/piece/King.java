@@ -15,7 +15,13 @@ import com.chess.piece.Piece.PieceType;
 import com.google.common.collect.ImmutableList;
 
 public class King extends Piece {
-	private final static int[] CANDIDATE_MOVE_COORDINATE ={-9, -8, -7, -1, 1, 7, 8, 9}; 
+	private final static int[] CANDIDATE_MOVE_COORDINATE = {-9, -8, -7, -1, 1, 7, 8, 9};
+	
+	/**
+	 * Constructor for King.
+	 * @param pieceAlliance black or white
+	 * @param piecePosition position of the piece
+	 */
 
 	public King(Alliance pieceAlliance, int piecePosition) {
 		super(piecePosition, pieceAlliance);
@@ -23,28 +29,26 @@ public class King extends Piece {
 	}
 
 	@Override
-	public Collection<Move> calculateLegalMoves(Board board) {
+	public Collection<Move> calculateLegalMoves(final Board board) { 
 		
 		final List<Move> legalMoves = new ArrayList<>();
 		
-	
-		
-		for (final int currentCandidateOffset : CANDIDATE_MOVE_COORDINATE){
+		for (final int currentCandidateOffset : CANDIDATE_MOVE_COORDINATE) { 
 			
-		final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
+			final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset; 
 		
 		//edge cases
-		if (isFirstColumnException(this.piecePosition, currentCandidateOffset) ||
-				isEightColumnException(this.piecePosition,currentCandidateOffset)){
+			if (isFirstColumnException(this.piecePosition, currentCandidateOffset) ||
+					  isEightColumnException(this.piecePosition, currentCandidateOffset)) { 
 			
-			continue;
+				continue;
 			
-		}
+			}
 			
-			if(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){
+			if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) { 
 				final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 				
-				if (candidateDestinationTile.isTileFull()){ 
+				if (candidateDestinationTile.isTileFull()) { 
 	
 					legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate));
 				} else { 
@@ -65,12 +69,12 @@ public class King extends Piece {
 		return ImmutableList.copyOf(legalMoves);
 	}
 	@Override
-	public String toString(){
+	public String toString() {
 		return PieceType.KING.toString();
 		
 	}
 	private static boolean isFirstColumnException(final int currentPosition, final int candidateOffset) { 
-		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == -1|| candidateOffset == 7);
+		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == -1 || candidateOffset == 7);
 		
 	}
 	private static boolean isEightColumnException(final int currentPosition, final int candidateOffset) { 

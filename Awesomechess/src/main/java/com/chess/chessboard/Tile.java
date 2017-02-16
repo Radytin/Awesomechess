@@ -25,10 +25,10 @@ public abstract class Tile {
 		
 	}
 	/**
-	 * Creates a new tile
-	 * @param tileCoordinate
-	 * @param piece
-	 * @return
+	 * Creates a new tile.
+	 * @param tileCoordinate coordinate of the tile
+	 * @param piece piece
+	 * @return a new occupied or empty tile
 	 */
 	public static Tile createTile(final int tileCoordinate, final Piece piece) {
 		return piece != null ? new occupiedTile(tileCoordinate, piece) : EMPTY_TILES.get(tileCoordinate);
@@ -37,8 +37,16 @@ public abstract class Tile {
 	private Tile(final int tileCoordinate) {
 		this.tileCoordinate = tileCoordinate;
 	}
-	
+	/**
+	 * Check is tile's full.
+	 * @return true or false
+	 */
 	public abstract boolean isTileFull(); 
+	
+	/**
+	 * Get piece on tile
+	 * @return piece
+	 */
 		
 	public abstract Piece getPiece();
 	
@@ -50,7 +58,7 @@ public abstract class Tile {
 		}
 		
 		@Override
-		public String toString(){
+		public String toString() {
 			return "-";
 			
 		}
@@ -75,7 +83,7 @@ public abstract class Tile {
 		}
 		
 		@Override
-		public String toString(){
+		public String toString() { 
 			return getPiece().getPieceAlliance().isBlack() ? getPiece().toString().toLowerCase() :
 			getPiece().toString();
 		}

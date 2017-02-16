@@ -19,11 +19,11 @@ public abstract class Piece {
 		this.isFirstMove = false;
 	}
 	
-	public int getPiecePosition(){
+	public int getPiecePosition() {
 		return this.piecePosition;
 		
 	}
-	public Alliance getPieceAlliance(){   
+	public Alliance getPieceAlliance() {   
 		return this.pieceAlliance;
 		
 	}
@@ -31,21 +31,21 @@ public abstract class Piece {
 	 * Check if it's first move, used for pawn jump.
 	 * @return true if it's first move
 	 */
-	public boolean isFirstMove(){ 
+	public boolean isFirstMove() { 
 		return this.isFirstMove;
 		//TODO needs more work
 		
 	}
 	/**
-	 * Collection of legal moves
-	 * @param board
+	 * Collection of legal moves.
+	 * @param board current game game board
 	 * @return Collection of legal moves.
 	 */
 	public abstract Collection<Move> calculateLegalMoves(final Board board);
 	
 	
 	 
-	public enum PieceType{
+	public enum PieceType {
 		
 		PAWN("P"),
 		KNIGHT("N"),
@@ -57,11 +57,11 @@ public abstract class Piece {
 		
 		private String pieceName;
 		
-		PieceType(final String pieceName){
+		PieceType(final String pieceName) {
 			this.pieceName = pieceName;
 		}
 		@Override
-		public String toString(){
+		public String toString() {
 			return this.pieceName;
 			
 		}

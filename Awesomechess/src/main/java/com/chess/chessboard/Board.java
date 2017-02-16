@@ -1,6 +1,6 @@
 package com.chess.chessboard;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -16,28 +16,28 @@ import com.chess.piece.Queen;
 import com.chess.piece.Rook;
 import com.google.common.collect.ImmutableList;
 
-public class Board {
+public class Board { 
 	
 	private final List<Tile> gameBoard;
 	private final Collection<Piece> whitePieces;
 	private final Collection<Piece> blackPieces;
 
-	private Board(Builder builder) {
+	private Board(Builder builder) { 
 		this.gameBoard = createGameBoard(builder);
 		this.whitePieces = calculateActivePieces(this.gameBoard, Alliance.WHITE);
-		this.blackPieces =calculateActivePieces(this.gameBoard, Alliance.BLACK);
+		this.blackPieces = calculateActivePieces(this.gameBoard, Alliance.BLACK);
 		
 		final Collection<Move> whiteLegalMoves = calculateLegalMoves(this.whitePieces);
 		final Collection<Move> blackLegalMoves = calculateLegalMoves(this.blackPieces);
 	}
 	
 	@Override
-	public String toString(){
+	public String toString() { 
 		final StringBuilder builder = new StringBuilder();
-		for (int i = 0; i < BoardUtils.NUM_TILES; i++){
+		for (int i = 0; i < BoardUtils.NUM_TILES; i++) {  
 			final String tileText = this.gameBoard.get(i).toString();
 			builder.append(String.format("%3s", tileText));
-			if((i + 1) % BoardUtils.NUM_TILES_PER_ROW == 0) {
+			if ((i + 1) % BoardUtils.NUM_TILES_PER_ROW == 0) { 
 				builder.append("\n");
 			}
 		}
@@ -46,11 +46,11 @@ public class Board {
 	}
 
 
-	private Collection<Move> calculateLegalMoves(final Collection<Piece> pieces) {
+	private Collection<Move> calculateLegalMoves(final Collection<Piece> pieces) { 
 		
 		final List<Move> legalMoves = new ArrayList<>();
 		
-		for(Piece piece : pieces){
+		for (Piece piece : pieces) { 
 			
 			legalMoves.addAll(piece.calculateLegalMoves(this));
 			
@@ -60,12 +60,12 @@ public class Board {
 
 	private static Collection<Piece> calculateActivePieces(final List<Tile> gameBoard, final Alliance alliance) {
 		
-		final List<Piece>activePieces = new ArrayList<>();
+		final List<Piece> activePieces = new ArrayList<>();
 		
-		for(final Tile tile : gameBoard){
-			if(tile.isTileFull()){
+		for (final Tile tile : gameBoard) { 
+			if (tile.isTileFull()) { 
 				final Piece piece = tile.getPiece();
-				if(piece.getPieceAlliance() == alliance){
+				if (piece.getPieceAlliance() == alliance) { 
 					activePieces.add(piece);
 				}
 			}
@@ -74,15 +74,19 @@ public class Board {
 		
 		return ImmutableList.copyOf(activePieces);
 	}
-
+	/**
+	 * Get tile.
+	 * @param tileCoordinate coordinate of the tile
+	 * @return tile
+	 */
 	public Tile getTile(final int tileCoordinate) { 
 		
 		return gameBoard.get(tileCoordinate);
 	}
 	
-	private static List<Tile> createGameBoard( final Builder builder){
+	private static List<Tile> createGameBoard(final Builder builder) { 
 		final Tile[] tiles = new Tile[BoardUtils.NUM_TILES];
-		for (int i=0; i < BoardUtils.NUM_TILES; i++){
+		for (int i = 0; i < BoardUtils.NUM_TILES; i++) { 
 			tiles[i] = Tile.createTile(i, builder.boardConfiguration.get(i));
 			
 		}
@@ -95,7 +99,7 @@ public class Board {
 	 * @return build
 	 */
 	
-	public static Board createStandardBoard() {
+	public static Board createStandardBoard() { 
         final Builder builder = new Builder();
         // Black pieces
         builder.setPiece(new Rook(Alliance.BLACK, 0));
@@ -134,36 +138,49 @@ public class Board {
         builder.setMoveMaker(Alliance.WHITE);
         //Assemble the board
         return builder.build();
-}
+	}
 	
 	public static class Builder {
 		
 		Map<Integer, Piece> boardConfiguration;
 		Alliance nextMoveMaker;
 		
-		public Builder(){
+		/**
+		 * Creates a new HashMap of the board config.
+		 */
+		public Builder() { 
 			this.boardConfiguration = new HashMap<>();
 			
 		}
+		/**
+		 * Set the piece.
+		 * @param piece piece
+		 * @return piece
+		 */
 		
-		public Builder setPiece(final Piece piece){
+		public Builder setPiece(final Piece piece) { 
 			this.boardConfiguration.put(piece.getPiecePosition(), piece);
 			return this;
 			
 		}
 		
+		/**
+		 * Set the maker of the next move.
+		 * @param nextMoveMaker black or white
+		 * @return next move black or white
+		 */
 		
-		public Builder setMoveMaker(Alliance nextMoveMaker){
+		public Builder setMoveMaker(Alliance nextMoveMaker) { 
 			this.nextMoveMaker = nextMoveMaker; 
 			return this;
 			
 		}
 		
 		/**
-		 * Build a new board
+		 * Build a new board.
 		 * @return new board
 		 */
-		public Board build(){
+		public Board build() { 
 			return new Board(this);
 		}
 		
