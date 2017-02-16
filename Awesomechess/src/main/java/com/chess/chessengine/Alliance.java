@@ -35,10 +35,23 @@ BLACK {
 	
 };
 
+	/**
+	 * get the direction of a piece according to the alliance.
+	 * @return
+	 */
 public abstract int getDirection();
+
+/**
+ * Check if piece is black
+ * @return false if not black, true if black.
+ */
 
 public abstract boolean isBlack();
 
+/**
+ * Check if piece is white
+ * @return false if not white, true if white.
+ */
 public abstract boolean isWhite();
 
 
