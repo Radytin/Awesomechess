@@ -23,7 +23,7 @@ public class King extends Piece {
 	 * @param piecePosition position of the piece
 	 */
 
-	public King(Alliance pieceAlliance, int piecePosition) {
+	public King(final Alliance pieceAlliance, final int piecePosition) {
 		super(PieceType.KING,piecePosition, pieceAlliance);
 		
 	}
@@ -69,6 +69,10 @@ public class King extends Piece {
 		return ImmutableList.copyOf(legalMoves);
 	}
 	@Override
+	public King movePiece(final Move move) {
+	return new King(move.getMovedPiece().getPieceAlliance(), move.getDestinationCoordinate());
+	}
+	@Override
 	public String toString() {
 		return PieceType.KING.toString();
 		
@@ -81,6 +85,8 @@ public class King extends Piece {
 		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == -7 || candidateOffset == 1 || candidateOffset == 9);
 		
 	}
+
+	
 	
 
 }

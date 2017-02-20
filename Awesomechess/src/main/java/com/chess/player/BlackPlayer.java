@@ -9,7 +9,7 @@ import com.chess.piece.Piece;
 
 public class BlackPlayer extends Player {
 
-	public BlackPlayer(Board board, Collection<Move> whiteLegalMoves, Collection<Move> blackLegalMoves) {
+	public BlackPlayer(final Board board, final Collection<Move> whiteLegalMoves, final Collection<Move> blackLegalMoves) {
 	
 		super(board, blackLegalMoves, whiteLegalMoves);
 	}

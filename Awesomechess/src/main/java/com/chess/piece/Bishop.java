@@ -72,6 +72,10 @@ public class Bishop extends Piece {
 		} 
 		return ImmutableList.copyOf(legalMoves);
 	}
+	@Override
+	public Bishop movePiece(final Move move) {
+		return new Bishop(move.getMovedPiece().getPieceAlliance(), move.getDestinationCoordinate());
+	}
 	
 	@Override
 	public String toString() { 
@@ -85,4 +89,5 @@ public class Bishop extends Piece {
     private static boolean isEightColumnException(final int currentPosition, final int candidateOffset) {  
   		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == -7 || candidateOffset == 9);
     }
+	
 }
