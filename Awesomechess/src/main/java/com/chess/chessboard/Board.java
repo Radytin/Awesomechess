@@ -14,6 +14,9 @@ import com.chess.piece.Pawn;
 import com.chess.piece.Piece;
 import com.chess.piece.Queen;
 import com.chess.piece.Rook;
+import com.chess.player.BlackPlayer;
+import com.chess.player.Player;
+import com.chess.player.WhitePlayer;
 import com.google.common.collect.ImmutableList;
 
 public class Board { 
@@ -21,6 +24,10 @@ public class Board {
 	private final List<Tile> gameBoard;
 	private final Collection<Piece> whitePieces;
 	private final Collection<Piece> blackPieces;
+	
+	private final WhitePlayer whitePlayer;
+	private final BlackPlayer blackPlayer;
+	private final Player currentPlayer;
 
 	private Board(Builder builder) { 
 		this.gameBoard = createGameBoard(builder);
@@ -29,7 +36,13 @@ public class Board {
 		
 		final Collection<Move> whiteLegalMoves = calculateLegalMoves(this.whitePieces);
 		final Collection<Move> blackLegalMoves = calculateLegalMoves(this.blackPieces);
+		
+		this.whitePlayer = new WhitePlayer(this,whiteLegalMoves, blackLegalMoves);
+		this.blackPlayer = new BlackPlayer(this, whiteLegalMoves, blackLegalMoves);
+		this.currentPlayer = null;
 	}
+	
+	
 	
 	@Override
 	public String toString() { 
@@ -43,6 +56,25 @@ public class Board {
 		}
 		return builder.toString();
 		
+	}
+	
+	public Player whitePlayer(){
+		return this.whitePlayer();
+		
+	}
+	public Player blackPlayer(){
+		return this.blackPlayer();
+	}
+	
+	public Player currentPlayer(){
+		return this.currentPlayer;
+		
+	}
+	public Collection<Piece> getBlackPieces(){
+		return this.blackPieces;
+	}
+	public Collection<Piece> getWhitePieces(){
+		return this.whitePieces;
 	}
 
 

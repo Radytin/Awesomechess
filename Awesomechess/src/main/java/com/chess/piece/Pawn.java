@@ -22,7 +22,7 @@ public class Pawn  extends Piece {
 	 */
 
 	public Pawn(final Alliance pieceAlliance, int piecePosition) {  
-		super(piecePosition, pieceAlliance);
+		super(PieceType.PAWN, piecePosition, pieceAlliance);
 		
 	}
 

@@ -22,7 +22,7 @@ public class Bishop extends Piece {
 	 * @param piecePosition position of the piece
 	 */
 	public Bishop(Alliance pieceAlliance, int piecePosition) { 
-		super(piecePosition, pieceAlliance);
+		super(PieceType.BISHOP,piecePosition, pieceAlliance);
 		
 	}
 	/**

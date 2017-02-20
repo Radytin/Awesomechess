@@ -24,7 +24,7 @@ public class King extends Piece {
 	 */
 
 	public King(Alliance pieceAlliance, int piecePosition) {
-		super(piecePosition, pieceAlliance);
+		super(PieceType.KING,piecePosition, pieceAlliance);
 		
 	}
 
