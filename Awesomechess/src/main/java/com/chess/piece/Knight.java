@@ -55,7 +55,7 @@ public class Knight extends Piece {
 				
 				final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 				
-				if (candidateDestinationTile.isTileFull()) { 
+				if (!candidateDestinationTile.isTileFull()) { 
 	
 					legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate));
 				} else { 

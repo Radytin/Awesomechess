@@ -44,7 +44,7 @@ public class Queen extends Piece {
 			while (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) { 
 				
 				if (isFirstColumnException(candidateDestinationCoordinate, candidateCoordinateOffset) || 
-						  isEightColumnException(candidateCoordinateOffset, candidateCoordinateOffset)) {  
+						  isEightColumnException(candidateDestinationCoordinate, candidateCoordinateOffset)) {  
 					break;
 					
 					
@@ -54,7 +54,7 @@ public class Queen extends Piece {
 					
 					final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 					
-					if (candidateDestinationTile.isTileFull()) { 
+					if (!candidateDestinationTile.isTileFull()) { 
 		
 						legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate));
 					} else { 
