@@ -34,6 +34,7 @@ public abstract class Tile {
 		return piece != null ? new occupiedTile(tileCoordinate, piece) : EMPTY_TILES.get(tileCoordinate);
 	}
 	
+	
 	private Tile(final int tileCoordinate) {
 		this.tileCoordinate = tileCoordinate;
 	}
@@ -49,6 +50,11 @@ public abstract class Tile {
 	 */
 		
 	public abstract Piece getPiece();
+	
+	public int getTileCoordinate(){
+		return this.tileCoordinate;
+		
+	}
 	
 	public static final class emptyTile extends Tile { 
 	

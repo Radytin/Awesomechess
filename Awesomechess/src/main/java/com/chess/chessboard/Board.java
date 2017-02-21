@@ -18,6 +18,7 @@ import com.chess.player.BlackPlayer;
 import com.chess.player.Player;
 import com.chess.player.WhitePlayer;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
 
 public class Board { 
 	
@@ -176,6 +177,7 @@ public class Board {
 		
 		Map<Integer, Piece> boardConfiguration;
 		Alliance nextMoveMaker;
+		Pawn enPassantPawn;
 		
 		/**
 		 * Creates a new HashMap of the board config.
@@ -215,8 +217,16 @@ public class Board {
 		public Board build() { 
 			return new Board(this);
 		}
+		public void setEnpassantPawn(Pawn movedPawn) {
+		 this.enPassantPawn = enPassantPawn;
+			
+		}
 		
 		
+	}
+
+	public Iterable<Move> getAllLegalMoves() {
+		return Iterables.unmodifiableIterable(Iterables.concat(this.whitePlayer.getLegalMoves(), this.blackPlayer.getLegalMoves()));
 	}
 
 }
