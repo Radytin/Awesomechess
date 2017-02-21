@@ -12,4 +12,5 @@ Päivä | Tunnit | Kuvaus
 14.02.2017 |2h| Viimeistelty boardbuildeeriä ja luotu main- luokka. Ihmetelty runtime-erroria jota en saanut korjattua
 15.02.2017 |1h| Ihmetelty erroria lisää, pushattu tuotos nyt vaikka main ei toimi jotta voin kysyä apua.
 20.02.2017 |5h| Debugattu kaikki ongelmat mitkä main-metodin ajossa ilmeni. Luotu luokkia pelaajille, vuoroille ja liikkeille sekä työstetty Move-luokkaa eteenpäin.
+21.02.2017 |4h| Lisäilty alaluokkia Move-luokkaan Pawnin erikoisliikkeille, säädelty castling- liikkeitä."
 
