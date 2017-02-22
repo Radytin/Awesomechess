@@ -1,6 +1,8 @@
-package com.chess.chessengine;
+package com.chess;
 
 import com.chess.chessboard.Board;
+
+import GUI.Table;
 
 public class Chess { 
 	
@@ -14,6 +16,8 @@ public class Chess {
 		Board board = Board.createStandardBoard();
 		
 		System.out.println(board);
+		
+		Table table = new Table();
 	}
 
 }
