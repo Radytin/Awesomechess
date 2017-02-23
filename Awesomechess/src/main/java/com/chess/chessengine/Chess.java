@@ -1,4 +1,4 @@
-package com.chess;
+package com.chess.chessengine;
 
 import com.chess.chessboard.Board;
 
