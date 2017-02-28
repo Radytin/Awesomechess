@@ -23,8 +23,12 @@ public class Rook extends Piece {
 	 * @param piecePosition position of piece
 	 */
 	public Rook(Alliance pieceAlliance, int piecePosition) { 
-		super(PieceType.ROOK,piecePosition, pieceAlliance);
+		super(PieceType.ROOK,piecePosition, pieceAlliance, true);
 		
+	}
+	
+	public Rook(Alliance pieceAlliance, int piecePosition, final boolean isFirstMove){
+		super(PieceType.ROOK,piecePosition, pieceAlliance, isFirstMove);
 	}
 	/**
 	 * Check if tile coordinate is valid and if it's exception. If it is, apply offset.

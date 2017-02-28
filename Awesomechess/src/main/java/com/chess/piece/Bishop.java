@@ -22,9 +22,15 @@ public class Bishop extends Piece {
 	 * @param piecePosition position of the piece
 	 */
 	public Bishop(Alliance pieceAlliance, int piecePosition) { 
-		super(PieceType.BISHOP,piecePosition, pieceAlliance);
+		super(PieceType.BISHOP,piecePosition, pieceAlliance, true);
 		
 	}
+	
+	public Bishop(Alliance pieceAlliance, int piecePosition, final boolean isFirstMove) { 
+		super(PieceType.BISHOP,piecePosition, pieceAlliance, isFirstMove);
+	}
+	
+	
 	/**
 	 * Check if tile coordinate is valid and if it's exception. If it is, apply offset.
 	 * If it's exception, break out.
