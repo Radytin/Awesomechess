@@ -1,5 +1,6 @@
 package com.chess.chessengine;
 
+import com.chess.chessboard.BoardUtils;
 import com.chess.player.BlackPlayer;
 import com.chess.player.Player;
 import com.chess.player.WhitePlayer;
@@ -25,6 +26,16 @@ WHITE {
 		public Player choosePlayer(final WhitePlayer whitePlayer, final BlackPlayer blackPlayer) {
 			return whitePlayer;
 		}
+
+		@Override
+		public int getOppositeDirection() {
+			return 1;
+		}
+
+		@Override
+		public boolean isPawnPromotionSquare(int position) {
+			return BoardUtils.EIGHT_RANK[position];
+		}
 },
 
 BLACK {
@@ -47,6 +58,16 @@ BLACK {
 		public Player choosePlayer(final WhitePlayer whitePlayer, final BlackPlayer blackPlayer) {
 			return blackPlayer;
 		}
+
+		@Override
+		public int getOppositeDirection() {
+			return -1;
+		}
+
+		@Override
+		public boolean isPawnPromotionSquare(int position) {
+			return BoardUtils.FIRST_RANK[position];
+		}
 	
 };
 
@@ -55,6 +76,8 @@ BLACK {
 	 * @return 1 or -1
 	 */
 	public abstract int getDirection();
+	
+	public abstract int getOppositeDirection();
 
 /**
  * Check if piece is black.
@@ -68,6 +91,8 @@ BLACK {
  * @return false if not white, true if white.
  */
 	public abstract boolean isWhite();
+	public abstract boolean isPawnPromotionSquare(int position);
+	
 
 public abstract Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer);
 
