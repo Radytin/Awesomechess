@@ -17,7 +17,7 @@ public class Chess {
 		
 		System.out.println(board);
 		
-		Table table = new Table();
+		Table.get().show();
 	}
 
 }
