@@ -52,7 +52,7 @@ public class King extends Piece {
 			if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) { 
 				final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 				
-				if (candidateDestinationTile.isTileFull()) { 
+				if (!candidateDestinationTile.isTileFull()) { 
 	
 					legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate));
 				} else { 
