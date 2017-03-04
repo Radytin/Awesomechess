@@ -13,4 +13,11 @@ Päivä | Tunnit | Kuvaus
 15.02.2017 |1h| Ihmetelty erroria lisää, pushattu tuotos nyt vaikka main ei toimi jotta voin kysyä apua.
 20.02.2017 |5h| Debugattu kaikki ongelmat mitkä main-metodin ajossa ilmeni. Luotu luokkia pelaajille, vuoroille ja liikkeille sekä työstetty Move-luokkaa eteenpäin.
 21.02.2017 |4h| Lisäilty alaluokkia Move-luokkaan Pawnin erikoisliikkeille, säädelty castling- liikkeitä."
-22.02.2017 |7h| GUI:n kasailemista.
+23.02.2017 |7h| GUI:n kasailemista.
+24.02.2017 |2h| Debugattu ongelma, joka esti nappuloiden liikuttamisen. Lisätty mahdollisuus näyttää lailliset liikkeet UI:ssa.
+28.02.2017 |5h| Lisätty UI:hin sivuun syödyt nappulat ja movelog.
+01.03.2017 |5h| debugattu pawnjump, lisätty pawnpromotion ja en passant.
+02.03.2017 |5h| Kehitetty JUnit-testejä.
+03.03.2017 |7h| MiniMax-algoritmin ja evaluoinnin suunnittelu ja toteutus, aloitettu yhdistämään GUI:hin
+04.03.2017 |3h| Yhdistetty AI GUI:iin lopullisesti. Debugattu ongelma Kingin laillisten liikkeiden laskemisessa.
+ 

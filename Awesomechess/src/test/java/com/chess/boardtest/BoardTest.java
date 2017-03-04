@@ -40,9 +40,7 @@ public class BoardTest {
         assertFalse(board.currentPlayer().getOpponent().isInCheck());
         assertFalse(board.currentPlayer().getOpponent().isInCheckMate());
         assertFalse(board.currentPlayer().getOpponent().isCastled());
-        assertTrue(board.whitePlayer().toString().equals("White"));
-        assertTrue(board.blackPlayer().toString().equals("Black"));
-
+       
         
 
     }
