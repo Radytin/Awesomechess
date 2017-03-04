@@ -1,7 +1,7 @@
 Shakkipeli, jossa 1-2 pelaajaa voivat pelata toisiaan vastaan tai tekoälybottia vastaan.
 
 Linkit dokumentaatioon:   
-[Aiheen kuvaus](documentation/aihemaarittelu.md)   
+[Aiheen kuvaus](documentation/aihemaarittely.md)   
 [Tuntikirjanpito](documentation/tuntikirjanpito.md)   
 [Määrittelyvaiheen luokkakaavio](documentation/diagrams/classdiagram_chess.jpg)   
 [Luokkakaavio v.2](documentation/diagrams/luokkakaavio3.jpg) 
