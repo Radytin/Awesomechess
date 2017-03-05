@@ -1,0 +1,9 @@
+com.chess.boardtest
+com.chess.chessboard
+com.chess.chessengine
+com.chess.piece
+com.chess.piecetest
+com.chess.player
+com.chess.player.ai
+com.chess.playertest
+gui
