@@ -10,3 +10,4 @@ Linkit dokumentaatioon:
 [Sekvenssikaavio laudan luonnista](documentation/diagrams/sekvenssikaaviolauta.jpg)  
 [Sekvenssikaavio pawn promotionista](documentation/diagrams/SekvenssikaavioPawnPromotion.jpg)    
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Radytin/Awesomechess/blob/master/documentation/testreports/checkstyle/checkstyle.html)   
+[Pit-raportti](https://htmlpreview.github.io/?https://github.com/Radytin/Awesomechess/blob/master/documentation/testreports/pit/index.html)  
