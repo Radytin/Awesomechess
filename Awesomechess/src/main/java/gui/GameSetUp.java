@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 
 import java.awt.Container;
@@ -19,7 +19,7 @@ import javax.swing.SpinnerNumberModel;
 import com.chess.chessengine.Alliance;
 import com.chess.player.Player;
 
-import GUI.Table.PlayerType;
+import gui.Table.PlayerType;
 
 
 class GameSetUp extends JDialog {
@@ -94,7 +94,7 @@ class GameSetUp extends JDialog {
     }
 
     boolean isAIPlayer(final Player player) {
-        if(player.getAlliance() == Alliance.WHITE) {
+        if (player.getAlliance() == Alliance.WHITE) {
             return getWhitePlayerType() == PlayerType.COMPUTER;
         }
         return getBlackPlayerType() == PlayerType.COMPUTER;
@@ -118,7 +118,7 @@ class GameSetUp extends JDialog {
     }
 
     int getSearchDepth() {
-        return (Integer)this.searchDepthSpinner.getValue();
+        return (Integer) this.searchDepthSpinner.getValue();
     }
 }
 

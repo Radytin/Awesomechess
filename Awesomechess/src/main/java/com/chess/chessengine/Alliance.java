@@ -76,7 +76,10 @@ BLACK {
 	 * @return 1 or -1
 	 */
 	public abstract int getDirection();
-	
+	/**
+	 * Get the opposite direction according to alliance.
+	 * @return 1 or -1
+	 */
 	public abstract int getOppositeDirection();
 
 /**
@@ -91,10 +94,21 @@ BLACK {
  * @return false if not white, true if white.
  */
 	public abstract boolean isWhite();
+	
+	/**
+	 * Check if the tile is pawn promotion tile according to alliance.
+	 * @param position current position of piece
+	 * @return true if piece is on promotion tile
+	 */
 	public abstract boolean isPawnPromotionSquare(int position);
 	
-
-public abstract Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer);
+	/**
+	 * Chooses player according to the alliance.
+	 * @param whitePlayer white 
+	 * @param blackPlayer black
+	 * @return whitePlayer or blackPlayer
+	 */
+    public abstract Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer);
 
 
 }

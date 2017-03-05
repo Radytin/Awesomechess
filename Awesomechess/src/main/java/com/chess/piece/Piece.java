@@ -32,20 +32,20 @@ public abstract class Piece {
 
 	@Override
 	public boolean equals(final Object other) {
-		if(this == other){
+		if (this == other) {
 			return true;
 		}
-		if(!(other instanceof Piece)){
+		if (!(other instanceof Piece)) {
 			return false;
 		}
-		final Piece otherPiece = (Piece)other; 
+		final Piece otherPiece = (Piece) other; 
 		return piecePosition == otherPiece.getPiecePosition() && pieceType == otherPiece.getPieceType() &&
 				pieceAlliance == otherPiece.getPieceAlliance() && isFirstMove == otherPiece.isFirstMove();
 		
 	}
 	@Override
 	public int hashCode() {
-	return this.cachedHashCode;
+		return this.cachedHashCode;
 	
 	}
 	
@@ -67,12 +67,12 @@ public abstract class Piece {
 		
 	}
 	
-	public PieceType getPieceType(){
+	public PieceType getPieceType() {
 		return this.pieceType;
 		
 	}
 	
-	public int getPieceValue(){
+	public int getPieceValue() {
 		return this.pieceType.getPieceValue();
 	}
 	/**
@@ -82,6 +82,12 @@ public abstract class Piece {
 	 */
 	public abstract Collection<Move> calculateLegalMoves(final Board board);
 	
+	
+	/**
+	 * Move piece.
+	 * @param move move
+	 * @return move piece
+	 */
 	public abstract Piece movePiece(Move move);
 	
 	 
@@ -178,10 +184,22 @@ public abstract class Piece {
 			return this.pieceName;
 			
 		}
-		public int getPieceValue(){
+		/**
+		 * Get the value of piece.
+		 * @return value of piece
+		 */
+		public int getPieceValue() {
 			return this.pieceValue;
 		}
+		/**
+		 * Is the piece king.
+		 * @return true if piece is king, false otherwise.
+		 */
 		public abstract boolean isKing();
+		/**
+		 * Is the piece Rook.
+		 * @return true if piece is Rook, false otherwise.
+		 */
 		public abstract boolean isRook();
 		
 		

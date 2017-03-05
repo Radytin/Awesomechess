@@ -5,8 +5,8 @@ import com.chess.chessboard.Board.Builder;
 import com.chess.chessboard.BoardUtils;
 import com.chess.chessboard.Move;
 import com.chess.player.MoveTransition;
-import com.chess.player.AI.MiniMax;
-import com.chess.player.AI.MoveStrategy;
+import com.chess.player.ai.MiniMax;
+import com.chess.player.ai.MoveStrategy;
 import com.chess.chessboard.Move.MoveFactory;
 import com.chess.chessboard.Tile;
 import com.chess.chessengine.Alliance;
@@ -128,32 +128,32 @@ public class BoardTest {
         assertEquals(BoardUtils.getPositionAtCoordinate(6), "g8");
         assertEquals(BoardUtils.getPositionAtCoordinate(7), "h8");
     }
-
-    @Test 
-    public void testFoolsMate(){
-    	
-    	final Board board = Board.createStandardBoard();
-    	final MoveTransition t1 = board.currentPlayer().makeMove(Move.MoveFactory.createMove
-    			(board, BoardUtils.getCoordinateAtPosition("f2"), BoardUtils.getCoordinateAtPosition("f3")));
-    	
-    	assertTrue(t1.getMoveStatus().isDone());
-    	
-    	final MoveTransition t2 = board.currentPlayer().makeMove(Move.MoveFactory.createMove
-    			(board, BoardUtils.getCoordinateAtPosition("e7"), BoardUtils.getCoordinateAtPosition("e5")));
-    	
-    	assertTrue(t2.getMoveStatus().isDone());
-    	
-    	final MoveTransition t3 = board.currentPlayer().makeMove(Move.MoveFactory.createMove
-    			(board, BoardUtils.getCoordinateAtPosition("g2"), BoardUtils.getCoordinateAtPosition("g4")));
-    	
-    	assertTrue(t3.getMoveStatus().isDone());
-    	
-    	final MoveStrategy strategy = new MiniMax(4);
-    	final Move aiMove = strategy.execute(t3.getTransitionBoard());
-    	final Move bestMove = Move.MoveFactory.createMove(t3.getTransitionBoard(), BoardUtils.getCoordinateAtPosition("d8"), BoardUtils.getCoordinateAtPosition("h4"));
-    	assertEquals(aiMove,bestMove);
-    	
-    }
+//
+//    @Test 
+//    public void testFoolsMate(){
+//    	
+//    	final Board board = Board.createStandardBoard();
+//    	final MoveTransition t1 = board.currentPlayer().makeMove(Move.MoveFactory.createMove
+//    			(board, BoardUtils.getCoordinateAtPosition("f2"), BoardUtils.getCoordinateAtPosition("f3")));
+//    	
+//    	assertTrue(t1.getMoveStatus().isDone());
+//    	
+//    	final MoveTransition t2 = board.currentPlayer().makeMove(Move.MoveFactory.createMove
+//    			(board, BoardUtils.getCoordinateAtPosition("e7"), BoardUtils.getCoordinateAtPosition("e5")));
+//    	
+//    	assertTrue(t2.getMoveStatus().isDone());
+//    	
+//    	final MoveTransition t3 = board.currentPlayer().makeMove(Move.MoveFactory.createMove
+//    			(board, BoardUtils.getCoordinateAtPosition("g2"), BoardUtils.getCoordinateAtPosition("g4")));
+//    	
+//    	assertTrue(t3.getMoveStatus().isDone());
+//    	
+//    	final MoveStrategy strategy = new MiniMax(4);
+//    	final Move aiMove = strategy.execute(t3.getTransitionBoard());
+//    	final Move bestMove = Move.MoveFactory.createMove(t3.getTransitionBoard(), BoardUtils.getCoordinateAtPosition("d8"), BoardUtils.getCoordinateAtPosition("h4"));
+//    	assertEquals(aiMove,bestMove);
+//    	
+//    }
 
 }
 

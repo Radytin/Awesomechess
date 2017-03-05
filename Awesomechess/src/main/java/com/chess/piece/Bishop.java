@@ -22,12 +22,18 @@ public class Bishop extends Piece {
 	 * @param piecePosition position of the piece
 	 */
 	public Bishop(Alliance pieceAlliance, int piecePosition) { 
-		super(PieceType.BISHOP,piecePosition, pieceAlliance, true);
+		super(PieceType.BISHOP, piecePosition, pieceAlliance, true);
 		
 	}
+	/**
+	 * Bishop constructor.
+	 * @param pieceAlliance black or white
+	 * @param piecePosition position of the piece
+	 * @param isFirstMove is it first move
+	 */
 	
 	public Bishop(Alliance pieceAlliance, int piecePosition, final boolean isFirstMove) { 
-		super(PieceType.BISHOP,piecePosition, pieceAlliance, isFirstMove);
+		super(PieceType.BISHOP, piecePosition, pieceAlliance, isFirstMove);
 	}
 	
 	

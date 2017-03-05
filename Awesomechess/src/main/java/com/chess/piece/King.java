@@ -24,11 +24,17 @@ public class King extends Piece {
 	 */
 
 	public King(final Alliance pieceAlliance, final int piecePosition) {
-		super(PieceType.KING,piecePosition, pieceAlliance, true);
+		super(PieceType.KING, piecePosition, pieceAlliance, true);
 		
 	}
+	/**
+	 * Constructor for King.
+	 * @param pieceAlliance black or white
+	 * @param piecePosition position of piece
+	 * @param isFirstMove is it first move
+	 */
 	public King(final Alliance pieceAlliance, final int piecePosition, final boolean isFirstMove) {
-		super(PieceType.KING,piecePosition, pieceAlliance, isFirstMove);
+		super(PieceType.KING, piecePosition, pieceAlliance, isFirstMove);
 		
 	}
 
@@ -74,7 +80,7 @@ public class King extends Piece {
 	}
 	@Override
 	public King movePiece(final Move move) {
-	return new King(move.getMovedPiece().getPieceAlliance(), move.getDestinationCoordinate());
+	    return new King(move.getMovedPiece().getPieceAlliance(), move.getDestinationCoordinate());
 	}
 	@Override
 	public String toString() {

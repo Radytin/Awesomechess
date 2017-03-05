@@ -2,7 +2,7 @@ package com.chess.chessengine;
 
 import com.chess.chessboard.Board;
 
-import GUI.Table;
+import gui.Table;
 
 public class Chess { 
 	

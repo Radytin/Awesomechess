@@ -10,14 +10,14 @@ public abstract class Tile {
 	
 	protected final int tileCoordinate;
 	
-	private static final Map<Integer, emptyTile> EMPTY_TILES = createAllEmptyTiles();
+	private static final Map<Integer, EmptyTile> EMPTY_TILES = createAllEmptyTiles();
 	
-	private static Map<Integer, emptyTile> createAllEmptyTiles() {
+	private static Map<Integer, EmptyTile> createAllEmptyTiles() {
 		
-		final Map<Integer, emptyTile> emptyTileMap = new HashMap<>();
+		final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
 		
 		for (int i = 0; i < BoardUtils.NUM_TILES; i++) {
-			emptyTileMap.put(i, new emptyTile(i));
+			emptyTileMap.put(i, new EmptyTile(i));
 		}
 		
 		return emptyTileMap;
@@ -31,7 +31,7 @@ public abstract class Tile {
 	 * @return a new occupied or empty tile
 	 */
 	public static Tile createTile(final int tileCoordinate, final Piece piece) {
-		return piece != null ? new occupiedTile(tileCoordinate, piece) : EMPTY_TILES.get(tileCoordinate);
+		return piece != null ? new OccupiedTile(tileCoordinate, piece) : EMPTY_TILES.get(tileCoordinate);
 	}
 	
 	
@@ -45,21 +45,21 @@ public abstract class Tile {
 	public abstract boolean isTileFull(); 
 	
 	/**
-	 * Get piece on tile
+	 * Get piece on tile.
 	 * @return piece
 	 */
 		
 	public abstract Piece getPiece();
 	
-	public int getTileCoordinate(){
+	public int getTileCoordinate() {
 		return this.tileCoordinate;
 		
 	}
 	
-	public static final class emptyTile extends Tile { 
+	public static final class EmptyTile extends Tile { 
 	
 		
-		private emptyTile(final int coordinate) {
+		private EmptyTile(final int coordinate) {
 			super(coordinate);
 		}
 		
@@ -81,9 +81,9 @@ public abstract class Tile {
 		}
 	}
 	
-	public static final class occupiedTile extends Tile { 
+	public static final class OccupiedTile extends Tile { 
 		private final Piece pieceOnTile;
-		private occupiedTile(int tileCoordinate, final Piece pieceOnTile) { 
+		private OccupiedTile(int tileCoordinate, final Piece pieceOnTile) { 
 			super(tileCoordinate);
 			this.pieceOnTile = pieceOnTile;
 		}

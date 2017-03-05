@@ -60,26 +60,37 @@ public class Board {
 		return builder.toString();
 		
 	}
+	/**
+	 * Returns white player.
+	 * @return white player
+	 */
 	
-	public Player whitePlayer(){
+	public Player whitePlayer() {
 		return this.whitePlayer;
 		
 	}
-	public Player blackPlayer(){
+	/**
+	 * Returns black player.
+	 * @return black player
+	 */
+	public Player blackPlayer() {
 		return this.blackPlayer;
 	}
-	
-	public Player currentPlayer(){
+	/**
+	 * Returns the player currently in turn. 
+	 * @return player currently in turn
+	 */
+	public Player currentPlayer() {
 		return this.currentPlayer;
 		
 	}
-	public Pawn getEnPassantPawn(){
+	public Pawn getEnPassantPawn() {
 		return this.enPassantPawn;
 	}
-	public Collection<Piece> getBlackPieces(){
+	public Collection<Piece> getBlackPieces() {
 		return this.blackPieces;
 	}
-	public Collection<Piece> getWhitePieces(){
+	public Collection<Piece> getWhitePieces() {
 		return this.whitePieces;
 	}
 
@@ -222,9 +233,14 @@ public class Board {
 		public Board build() { 
 			return new Board(this);
 		}
+		/**
+		 * sets en passant pawn.
+		 * @param enPassantPawn the enpassant pawn
+		 * @return this en passant pawn
+		 */
 		public Builder setEnpassantPawn(final Pawn enPassantPawn) {
-		 this.enPassantPawn = enPassantPawn;
-		 return this;
+		    this.enPassantPawn = enPassantPawn;
+		    return this;
 			
 		}
 		

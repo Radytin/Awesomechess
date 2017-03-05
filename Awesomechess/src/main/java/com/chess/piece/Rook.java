@@ -23,12 +23,17 @@ public class Rook extends Piece {
 	 * @param piecePosition position of piece
 	 */
 	public Rook(Alliance pieceAlliance, int piecePosition) { 
-		super(PieceType.ROOK,piecePosition, pieceAlliance, true);
+		super(PieceType.ROOK, piecePosition, pieceAlliance, true);
 		
 	}
-	
-	public Rook(Alliance pieceAlliance, int piecePosition, final boolean isFirstMove){
-		super(PieceType.ROOK,piecePosition, pieceAlliance, isFirstMove);
+	/**
+	 * Constructor for Rook.
+	 * @param pieceAlliance black or white
+	 * @param piecePosition position of piece
+	 * @param isFirstMove is it first move
+	 */
+	public Rook(Alliance pieceAlliance, int piecePosition, final boolean isFirstMove) {
+		super(PieceType.ROOK, piecePosition, pieceAlliance, isFirstMove);
 	}
 	/**
 	 * Check if tile coordinate is valid and if it's exception. If it is, apply offset.
@@ -93,5 +98,5 @@ public class Rook extends Piece {
     }
     private static boolean isEightColumnException(final int currentPosition, final int candidateOffset) { 
   		return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == 1);
-}
+    }
 }

@@ -25,12 +25,18 @@ public class Knight extends Piece {
 	 */
 
 	public Knight(Alliance pieceAlliance, int piecePosition) { 
-		super(PieceType.KNIGHT,piecePosition, pieceAlliance, true);
+		super(PieceType.KNIGHT, piecePosition, pieceAlliance, true);
 		
 	}
+	/**
+	 * Constructor for Knight.
+	 * @param pieceAlliance black or white
+	 * @param piecePosition position of piece
+	 * @param isFirstMove is it first move
+	 */
 
 	public Knight(Alliance pieceAlliance, int piecePosition, final boolean isFirstMove) { 
-		super(PieceType.KNIGHT,piecePosition, pieceAlliance, isFirstMove);
+		super(PieceType.KNIGHT, piecePosition, pieceAlliance, isFirstMove);
 		
 	}
 
@@ -55,7 +61,7 @@ public class Knight extends Piece {
 						  isSecondColumnException(this.piecePosition, currentCandidateOffset) || 
 						  isSeventhColumnException(this.piecePosition, currentCandidateOffset) ||  
 						  isEightColumnException(this.piecePosition, currentCandidateOffset)) { 
-								continue;
+				    continue;
 				}
 				
 				final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);

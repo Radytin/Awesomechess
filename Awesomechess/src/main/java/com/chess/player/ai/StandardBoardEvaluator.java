@@ -1,4 +1,4 @@
-package com.chess.player.AI;
+package com.chess.player.ai;
 
 import com.chess.chessboard.Board;
 import com.chess.piece.Piece;
@@ -22,7 +22,7 @@ public final class StandardBoardEvaluator implements BoardEvaluator {
 	private int scorePlayer(final Board board, final Player player, final int depht) {
 		
 		
-		return pieceValue(player) + mobility(player) + check(player) +checkmate(player, depht) + castled(player);
+		return pieceValue(player) + mobility(player) + check(player) + checkmate(player, depht) + castled(player);
 	}
 	
 	private static int castled(Player player) {
@@ -45,9 +45,9 @@ public final class StandardBoardEvaluator implements BoardEvaluator {
 		return player.getLegalMoves().size();
 	}
 
-	private static int pieceValue(final Player player){
+	private static int pieceValue(final Player player) {
 		int pieceValueScore = 0;
-		for(final Piece piece : player.getActivePieces()){
+		for (final Piece piece : player.getActivePieces()) {
 			pieceValueScore += piece.getPieceValue();
 		}
 		return pieceValueScore;
