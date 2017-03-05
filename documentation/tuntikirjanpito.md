@@ -20,4 +20,5 @@ Päivä | Tunnit | Kuvaus
 02.03.2017 |5h| Kehitetty JUnit-testejä.
 03.03.2017 |7h| MiniMax-algoritmin ja evaluoinnin suunnittelu ja toteutus, aloitettu yhdistämään GUI:hin
 04.03.2017 |3h| Yhdistetty AI GUI:iin lopullisesti. Debugattu ongelma Kingin laillisten liikkeiden laskemisessa.
- 
+04.03.2017 |7h| Luotu lisää testejä ja valmisteltu dokumentaatiota. Debugattu pieniä bugeja.  
+05.03.2017 |3h| Viimeistelty ja siivoiltu koodia ja viimeistelty testejä. 
