@@ -1,5 +1,11 @@
 Shakkipeli, jossa 1-2 pelaajaa voivat pelata toisiaan vastaan tai tekoälybottia vastaan.
 
+Käyttöohje:  
+-Klikkaa ensin nappulaa vasemmalla hiiren painikkeella valitaksesi siirrettävä nappula.  
+-Valitse sitten ruutu johon haluat siirtää nappulan ja klikkaa sitä vasemmalla hiiren painikkeella.  
+-Preferences- valikosta voit korostaa lailliset liikkeet.  
+-Options- valikosta voit valita, haluatko pelata tietokonetta vastaa.
+
 Linkit dokumentaatioon:   
 [Aiheen kuvaus](documentation/aihemaarittely.md)   
 [Tuntikirjanpito](documentation/tuntikirjanpito.md)   
