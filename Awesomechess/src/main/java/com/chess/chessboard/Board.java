@@ -251,4 +251,10 @@ public class Board {
 		return Iterables.unmodifiableIterable(Iterables.concat(this.whitePlayer.getLegalMoves(), this.blackPlayer.getLegalMoves()));
 	}
 
+
+
+	public List<Tile> getGameBoard() {
+        return this.gameBoard;
+}
+
 }
